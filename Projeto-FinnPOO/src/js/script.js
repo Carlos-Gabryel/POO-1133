@@ -9,7 +9,6 @@ class Cliente {
     this.senha = senha;
   }
 }
-
 class Conta {
   constructor(numero, saldo, cliente) {
     this.numero = numero;
@@ -25,7 +24,6 @@ class Conta {
     this.saldo = novoSaldo;
   }
 }
-
 class ContaCorrente extends Conta {
   constructor(numero, saldo, cliente, limiteChequeEspecial) {
     super(numero, saldo, cliente);
@@ -41,7 +39,6 @@ class ContaCorrente extends Conta {
     }
   }
 }
-
 class ContaPoupanca extends Conta {
   constructor(numero, saldo, cliente, taxaRendimento) {
     super(numero, saldo, cliente);
@@ -63,7 +60,6 @@ class ContaPoupanca extends Conta {
     return rendimento;
   }
 }
-
 class OperacaoFinanceira {
   static depositar(conta, valor) {
     conta.setSaldo(conta.getSaldo() + valor);
@@ -77,12 +73,10 @@ class OperacaoFinanceira {
     }
   }
 }
-
 function criarNumeroConta() {
   const numero = Math.floor(Math.random() * 1000);
   return numero;
 }
-
 function novoCliente() {
   var cpf = prompt("Digite seu CPF: ");
   var senha = prompt("Digite sua senha: ");
@@ -103,7 +97,6 @@ function novoCliente() {
     exibirMenuPrincipal();
   }
 }
-
 function verificarClienteExistenteCorrente(cpf) {
   const clienteExistente = contasCorrente.find(
     (conta) => conta.cliente.cpf === cpf
@@ -124,7 +117,6 @@ function verificarClienteExistentePoupanca(cpf) {
     return false;
   }
 }
-
 function exibirMenuTipoDeConta() {
   console.log("Selecione o tipo de conta que deseja criar:");
   console.log("1. Conta Corrente");
@@ -145,7 +137,6 @@ function exibirMenuTipoDeConta() {
       break;
   }
 }
-
 function criarContaCorrente() {
   if (verificarClienteExistenteCorrente(contas[0].cliente.cpf)) {
     console.log("CPF já cadastrado. Não é possível criar uma nova conta.");
@@ -182,7 +173,6 @@ function criarContaPoupanca() {
     contasPoupanca.push(contaPoupanca);
   }
 }
-
 function verificarUsuario(cpf, senha) {
   const clienteEncontradoCorrente = contasCorrente.find(
     (conta) => conta.cliente.cpf === cpf
@@ -204,7 +194,6 @@ function verificarUsuario(cpf, senha) {
     return false;
   }
 }
-
 function exibirMenuPrincipal() {
   console.log("=== MENU PRINCIPAL ===");
   console.log("1. Criar conta");
@@ -243,7 +232,6 @@ function exibirMenuLogin() {
     exibirMenuPrincipal();
   }
 }
-
 function exibirMenuLogadoCorrente() {
   console.log("=== MENU LOGADO ===");
   console.log("1. Ver saldo");
@@ -302,7 +290,6 @@ function exibirMenuLogadoPoupanca() {
       break;
   }
 }
-
 function exibirSaldoCorrente() {
   console.log("=== SALDO ===");
   console.log(
@@ -339,7 +326,6 @@ function exibirSaldopoupanca() {
       break;
   }
 }
-
 function exibirDepositarCorrente() {
   console.log("=== DEPOSITAR ===");
   var valorCC = parseFloat(
@@ -378,7 +364,6 @@ function exibirDepositarPoupanca() {
       break;
   }
 }
-
 function exibirSacarCorrente() {
   console.log("=== SACAR ===");
   var valorCC = parseFloat(
@@ -397,7 +382,6 @@ function exibirSacarCorrente() {
       break;
   }
 }
-
 function exibirSacarPoupanca() {
   console.log("=== SACAR ===");
   var valorCP = parseFloat(
@@ -416,7 +400,6 @@ function exibirSacarPoupanca() {
       break;
   }
 }
-
 function exibirRenderDinheiro() {
   console.log("=== RENDER DINHEIRO ===");
   console.log("1. Conta Poupança");
@@ -438,5 +421,4 @@ function exibirRenderDinheiro() {
       break;
   }
 }
-
 exibirMenuPrincipal();
